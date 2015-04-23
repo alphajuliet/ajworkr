@@ -20,7 +20,6 @@ Useful utility functions for my data wrangling
 \section{Set up data sources}{
 
 
-
 Create a quarter folder using the provided date
 }
 \examples{

@@ -145,6 +145,9 @@ view_as_html <- function (tbl) {
   rstudio::viewer(htmlFile)
 }
 
+#' @docType package
+#' @title ajworkr
+#' @name ajworkr
 #' @import lubridate
 #' @import stringr
 
