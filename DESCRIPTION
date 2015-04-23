@@ -1,0 +1,20 @@
+Package: ajworkr
+Title: My utility functions for work stuff.
+Version: 0.1
+Authors@R: person("Andrew", "J", email = "web@alphajuliet.com",
+                  role = c("aut", "cre"))
+Description: Utility functions for file retrieval and data wrangling.
+  Used primarily in my work use cases.
+Depends: R (>= 3.1.2)
+License: MIT + file LICENSE
+Imports:
+  dplyr (>= 0.4.1),
+  tidyr,
+  readr (>= 0.1.0),
+  readxl (>= 0.1.0),
+  stringr (>= 0.6.2),
+  assertthat(>= 0.1),
+  xtable (>= 1.7-4),
+  lubridate
+LazyData: true
+Suggests: testthat
