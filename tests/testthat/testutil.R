@@ -38,7 +38,7 @@ test_that("norm() works", {
 })
 
 #---------------------------------------
-context("changeNA")
+context("change_NA")
 test_that("changeNA() works", {
   df <- data.frame(x=c(1, 2, NA, 3))
   df1 <- change_NA(df, to=99)

@@ -2,6 +2,7 @@
 % Please edit documentation in R/util.R
 \name{view_as_html}
 \alias{view_as_html}
+\title{Show a table as ugly HTML in the Viewer pane}
 \usage{
 view_as_html(tbl)
 }
@@ -11,9 +12,7 @@ view_as_html(tbl)
 \value{
 Nothing
 }
-\section{Viewing}{
-
-
+\description{
 Show a table as ugly HTML in the Viewer pane
 }
 

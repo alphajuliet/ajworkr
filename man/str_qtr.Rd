@@ -14,12 +14,6 @@ str_qtr(d)
 A string of the form \code{yyyy-Qq} where \code{q} is one of 1, 2, 3 or 4.
 }
 \description{
-util.R
-Useful utility functions for my data wrangling
-}
-\section{Set up data sources}{
-
-
 Create a quarter folder using the provided date
 }
 \examples{

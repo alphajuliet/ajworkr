@@ -2,6 +2,7 @@
 % Please edit documentation in R/util.R
 \name{to_number}
 \alias{to_number}
+\title{Turn strings into numbers. Also handles percentages.}
 \usage{
 to_number(x)
 }
@@ -11,9 +12,7 @@ to_number(x)
 \value{
 The converted number or NA if it's not convertible.
 }
-\section{Utilities}{
-
-
+\description{
 Turn strings into numbers. Also handles percentages.
 }
 \examples{

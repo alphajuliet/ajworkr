@@ -2,7 +2,9 @@
 % Please edit documentation in R/util.R
 \name{find_latest}
 \alias{find_latest}
-\title{}
+\title{Find the latest version of a file with a given pattern in a given folder.
+This is typically used for files that start with a ymd date or a monotonically
+increasing string, e.g. \code{yyyy-mm-dd filename.ext}.}
 \usage{
 find_latest(srcDir = ".", pattern)
 }
@@ -15,11 +17,6 @@ find_latest(srcDir = ".", pattern)
 The full path of the matching file, or NULL.
 }
 \description{
-
-}
-\section{File functions}{
-
-
 Find the latest version of a file with a given pattern in a given folder.
 This is typically used for files that start with a ymd date or a monotonically
 increasing string, e.g. \code{yyyy-mm-dd filename.ext}.
