@@ -56,7 +56,7 @@ find_latest <- function (srcDir=".", pattern) {
 #' @seealso \code{\link{find_latest}}
 #' @export
 read_latest <- function (srcDir=".", pattern, skip=0, sheet=1, R.identifiers=FALSE) {
-  assertthat::assert_that(is.dir(srcDir))
+  assertthat::assert_that(assertthat::is.dir(srcDir))
   in_file <- find_latest(srcDir, pattern)
   cat("Reading:", in_file, sep=" ")
 
