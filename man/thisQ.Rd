@@ -3,14 +3,14 @@
 \docType{data}
 \name{thisQ}
 \alias{thisQ}
-\title{The current quarter}
+\title{A string representing the current quarter in the form \code{yyyy-Qq}.}
 \format{\preformatted{ chr "2015-Q2"
 }}
 \usage{
 thisQ
 }
 \description{
-The current quarter
+A string representing the current quarter in the form \code{yyyy-Qq}.
 }
 \keyword{datasets}
 

@@ -1,29 +1,36 @@
 #' util.R
 #' Useful utility functions for my data wrangling
 #'
-#' Create a quarter folder using the provided date
-#' @param d A date value
+#' Create a string representing the quarter, using the provided date
+#' @param d A date value. Defaults to the current date.
 #' @return A string of the form \code{yyyy-Qq} where \code{q} is one of 1, 2, 3 or 4.
 #' @export
 #' @examples
-#' str_qtr(now())
-#' str_qtr(as.Date("2003-03-02"))
-str_qtr <- function (d) {
+#' str_qtr()
+#' str_qtr("2003-03-02")
+str_qtr <- function (d=today()) {
   str_c(year(d), "-Q", quarter(d))
 }
 
-#' The current quarter
+#' A string representing the current quarter in the form \code{yyyy-Qq}.
 #' @export
 thisQ <- str_qtr(now())
 
-#' The previous quarter
+#' A string representing the previous quarter in the form \code{yyyy-Qq}.
 #' @export
 lastQ <- str_qtr(now() %m-% months(3))
 
-#' A source folder for data usiny my convention for where it's stored.
+#' A source folder for data using my convention for how the data is organised.
+#' The path used is: \code{base_dir/qtr/folder}
+#' @param qtr The quarter, using the format yyyy-Qq.
+#' @param folder. By default, this is \code{Reports}.
+#' @param base_dir If NULL, then reads from the environment variable \code{FINANCIALS_HOME}
+#' @seealso \code{\link{thisQ}} \code{\link{lastQ}} \code{\link{str_qtr}}
 #' @export
-src_dir <- function (qtr, folder="Reports", base_dir="..") {
-  file.path(base_dir, qtr, folder)
+src_dir <- function (qtr, folder="Reports", base_dir=NULL) {
+  if (is.null(base_dir))
+    base_dir = Sys.getenv("FINANCIALS_HOME")
+  normalizePath(file.path(base_dir, qtr, folder))
 }
 
 #' Find the latest version of a file with a given pattern in a given folder.
@@ -32,6 +39,7 @@ src_dir <- function (qtr, folder="Reports", base_dir="..") {
 #' @param srcDir The search directory.
 #' @param pattern A regular expression matching the file you want to find.
 #' @return The full path of the matching file, or NULL.
+#' @seealso \code{\link{read_latest}}
 #' @export
 find_latest <- function (srcDir=".", pattern) {
   files <- sort(list.files(path=srcDir, pattern=pattern))
@@ -48,6 +56,9 @@ find_latest <- function (srcDir=".", pattern) {
 #' @param R.identifiers Convert the column names to valid R identifiers, defaults to \code{FALSE}.
 #' @return A data frame with the colnames either as exact strings matching the header
 #' values, or as valid R identifies for compatibility with \code{read.csv()}.
+#' @examples
+#' read_latest(src_dir(thisQ), ".*abcdef.*\\.txt"))
+#' read_latest(src_dir(thisQ), ".*abcdef.*\\.xlsx", sheet=2, R.identifiers=TRUE))
 #' @seealso \code{\link{find_latest}}
 #' @export
 read_latest <- function (srcDir=".", pattern, skip=0, sheet=1, R.identifiers=FALSE) {

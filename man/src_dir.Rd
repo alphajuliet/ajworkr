@@ -2,11 +2,23 @@
 % Please edit documentation in R/util.R
 \name{src_dir}
 \alias{src_dir}
-\title{A source folder for data usiny my convention for where it's stored.}
+\title{A source folder for data using my convention for how the data is organised.
+The path used is: \code{base_dir/qtr/folder}}
 \usage{
-src_dir(qtr, folder = "Reports", base_dir = "..")
+src_dir(qtr, folder = "Reports", base_dir = NULL)
+}
+\arguments{
+\item{qtr}{The quarter, using the format yyyy-Qq.}
+
+\item{base_dir}{If NULL, then reads from the environment variable \code{FINANCIALS_HOME}}
+
+\item{folder.}{By default, this is \code{Reports}.}
 }
 \description{
-A source folder for data usiny my convention for where it's stored.
+A source folder for data using my convention for how the data is organised.
+The path used is: \code{base_dir/qtr/folder}
+}
+\seealso{
+\code{\link{thisQ}} \code{\link{lastQ}} \code{\link{str_qtr}}
 }
 

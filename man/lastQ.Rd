@@ -3,14 +3,14 @@
 \docType{data}
 \name{lastQ}
 \alias{lastQ}
-\title{The previous quarter}
+\title{A string representing the previous quarter in the form \code{yyyy-Qq}.}
 \format{\preformatted{ chr "2015-Q1"
 }}
 \usage{
 lastQ
 }
 \description{
-The previous quarter
+A string representing the previous quarter in the form \code{yyyy-Qq}.
 }
 \keyword{datasets}
 

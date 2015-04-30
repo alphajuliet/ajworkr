@@ -21,4 +21,7 @@ Find the latest version of a file with a given pattern in a given folder.
 This is typically used for files that start with a ymd date or a monotonically
 increasing string, e.g. \code{yyyy-mm-dd filename.ext}.
 }
+\seealso{
+\code{\link{read_latest}}
+}
 

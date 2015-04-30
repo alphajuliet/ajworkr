@@ -5,19 +5,19 @@
 \title{util.R
 Useful utility functions for my data wrangling}
 \usage{
-str_qtr(d)
+str_qtr(d = today())
 }
 \arguments{
-\item{d}{A date value}
+\item{d}{A date value. Defaults to the current date.}
 }
 \value{
 A string of the form \code{yyyy-Qq} where \code{q} is one of 1, 2, 3 or 4.
 }
 \description{
-Create a quarter folder using the provided date
+Create a string representing the quarter, using the provided date
 }
 \examples{
-str_qtr(now())
-str_qtr(as.Date("2003-03-02"))
+str_qtr()
+str_qtr("2003-03-02")
 }
 
