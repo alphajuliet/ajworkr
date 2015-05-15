@@ -16,8 +16,8 @@ The converted number or NA if it's not convertible.
 Turn strings into numbers. Also handles percentages.
 }
 \examples{
-toNumber("9876")
-toNumber("19\%")
-toNumber("$12,345.50")
+to_number("9876")
+to_number("19\%")
+to_number("$12,345.50")
 }
 

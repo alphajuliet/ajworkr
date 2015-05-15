@@ -1,11 +1,11 @@
 Package: ajworkr
-Title: My utility functions for work stuff.
-Version: 0.1
+Title: My utility functions for work stuff
+Version: 0.2
 Authors@R: person("Andrew", "J", email = "web@alphajuliet.com",
                   role = c("aut", "cre"))
 Description: Utility functions for file retrieval and data wrangling.
   Used primarily in my work use cases.
-Depends: R (>= 3.1.2)
+Depends: R (>= 3.2.0)
 License: MIT + file LICENSE
 Imports:
   dplyr (>= 0.4.1),

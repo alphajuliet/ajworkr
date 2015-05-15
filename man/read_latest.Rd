@@ -25,10 +25,6 @@ values, or as valid R identifies for compatibility with \code{read.csv()}.
 \description{
 Read the latest CSV or XLSX file with a given pattern in a given folder.
 }
-\examples{
-read_latest(src_dir(thisQ), ".*abcdef.*\\\\.txt"))
-read_latest(src_dir(thisQ), ".*abcdef.*\\\\.xlsx", sheet=2, R.identifiers=TRUE))
-}
 \seealso{
 \code{\link{find_latest}}
 }

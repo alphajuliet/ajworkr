@@ -10,9 +10,9 @@ src_dir(qtr, folder = "Reports", base_dir = NULL)
 \arguments{
 \item{qtr}{The quarter, using the format yyyy-Qq.}
 
-\item{base_dir}{If NULL, then reads from the environment variable \code{FINANCIALS_HOME}}
+\item{folder}{By default, this is \code{Reports}.}
 
-\item{folder.}{By default, this is \code{Reports}.}
+\item{base_dir}{If NULL, then reads from the environment variable \code{FINANCIALS_HOME}}
 }
 \description{
 A source folder for data using my convention for how the data is organised.

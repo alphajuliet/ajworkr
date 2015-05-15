@@ -6,6 +6,11 @@
 \usage{
 xnonzero(a, b)
 }
+\arguments{
+\item{a}{First argument}
+
+\item{b}{Second argument}
+}
 \description{
 Select the first value unless zero, in which case return the second!
 }

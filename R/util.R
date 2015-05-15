@@ -23,7 +23,7 @@ lastQ <- str_qtr(now() %m-% months(3))
 #' A source folder for data using my convention for how the data is organised.
 #' The path used is: \code{base_dir/qtr/folder}
 #' @param qtr The quarter, using the format yyyy-Qq.
-#' @param folder. By default, this is \code{Reports}.
+#' @param folder By default, this is \code{Reports}.
 #' @param base_dir If NULL, then reads from the environment variable \code{FINANCIALS_HOME}
 #' @seealso \code{\link{thisQ}} \code{\link{lastQ}} \code{\link{str_qtr}}
 #' @export
@@ -56,9 +56,6 @@ find_latest <- function (srcDir=".", pattern) {
 #' @param R.identifiers Convert the column names to valid R identifiers, defaults to \code{FALSE}.
 #' @return A data frame with the colnames either as exact strings matching the header
 #' values, or as valid R identifies for compatibility with \code{read.csv()}.
-#' @examples
-#' read_latest(src_dir(thisQ), ".*abcdef.*\\.txt"))
-#' read_latest(src_dir(thisQ), ".*abcdef.*\\.xlsx", sheet=2, R.identifiers=TRUE))
 #' @seealso \code{\link{find_latest}}
 #' @export
 read_latest <- function (srcDir=".", pattern, skip=0, sheet=1, R.identifiers=FALSE) {
@@ -95,9 +92,9 @@ file_purge <- function (path, pattern="*") {
 #' @param x The string for converting
 #' @return The converted number or NA if it's not convertible.
 #' @examples
-#' toNumber("9876")
-#' toNumber("19%")
-#' toNumber("$12,345.50")
+#' to_number("9876")
+#' to_number("19%")
+#' to_number("$12,345.50")
 #' @export
 to_number <- function (x) {
   x <- gsub('([0-9]+)%', "0.\\1", x, fixed=FALSE)
@@ -116,6 +113,8 @@ norm <- function (v, digits=2) {
 }
 
 #' Select the first value unless zero, in which case return the second!
+#' @param a First argument
+#' @param b Second argument
 #' @export
 xnonzero <- function (a, b) {
   ifelse(a==0, b, a)
@@ -125,9 +124,6 @@ xnonzero <- function (a, b) {
 #' @param df The data frame
 #' @param to The new value for NAs, defaults to zero
 #' @return The updated data frame
-#' @examples
-#' df %>% change_NA(to=0)
-#' df %>% change_NA(to="")
 #' @export
 change_NA <- function (df, to=0) {
   df[is.na(df)] <- to
@@ -135,7 +131,7 @@ change_NA <- function (df, to=0) {
 }
 
 #' Show a table as ugly HTML in the Viewer pane
-#' @param A data frame for printing
+#' @param tbl A data frame for printing
 #' @return Nothing
 #' @export
 view_as_html <- function (tbl) {

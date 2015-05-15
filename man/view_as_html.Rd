@@ -7,7 +7,7 @@
 view_as_html(tbl)
 }
 \arguments{
-\item{A}{data frame for printing}
+\item{tbl}{A data frame for printing}
 }
 \value{
 Nothing

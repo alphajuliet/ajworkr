@@ -17,8 +17,4 @@ The updated data frame
 \description{
 Change NAs in a data frame to something else, or zero by default.
 }
-\examples{
-df \%>\% change_NA(to=0)
-df \%>\% change_NA(to="")
-}
 
