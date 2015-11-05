@@ -54,20 +54,21 @@ find_latest <- function (srcDir=".", pattern) {
 #' @param skip The number of lines to skip in the input file, defaults to 0
 #' @param sheet The sheet number if reading a apreadsheet, defaults to 1
 #' @param R.identifiers Convert the column names to valid R identifiers, defaults to \code{FALSE}.
+#' @param ... Additional parameters to be passed to read_csv or read_excel.
 #' @return A data frame with the colnames either as exact strings matching the header
 #' values, or as valid R identifies for compatibility with \code{read.csv()}.
 #' @seealso \code{\link{find_latest}}
 #' @export
-read_latest <- function (srcDir=".", pattern, skip=0, sheet=1, R.identifiers=FALSE) {
+read_latest <- function (srcDir=".", pattern, skip=0, sheet=1, R.identifiers=FALSE, ...) {
   assertthat::assert_that(assertthat::is.dir(srcDir))
   in_file <- find_latest(srcDir, pattern)
   cat("Reading:", in_file, sep=" ")
 
   if (str_detect(in_file, "xlsx$")) {
-    df <- readxl::read_excel(in_file, sheet=sheet, skip=skip)
+    df <- readxl::read_excel(in_file, sheet=sheet, skip=skip, ...)
   }
   else {
-    df <- readr::read_csv(in_file, col_names=TRUE, skip=skip)
+    df <- readr::read_csv(in_file, col_names=TRUE, skip=skip, ...)
   }
 
   if (R.identifiers==TRUE) {
