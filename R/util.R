@@ -12,14 +12,6 @@ str_qtr <- function (d=today()) {
   str_c(year(d), "-Q", quarter(d))
 }
 
-#' A string representing the current quarter in the form \code{yyyy-Qq}.
-#' @export
-thisQ <- str_qtr(now())
-
-#' A string representing the previous quarter in the form \code{yyyy-Qq}.
-#' @export
-lastQ <- str_qtr(now() %m-% months(3))
-
 #' A source folder for data using my convention for how the data is organised.
 #' The path used is: \code{base_dir/qtr/folder}
 #' @param qtr The quarter, using the format yyyy-Qq.
@@ -129,19 +121,6 @@ xnonzero <- function (a, b) {
 change_NA <- function (df, to=0) {
   df[is.na(df)] <- to
   df
-}
-
-#' Show a table as ugly HTML in the Viewer pane
-#' @param tbl A data frame for printing
-#' @return Nothing
-#' @export
-view_as_html <- function (tbl) {
-  dir <- tempfile()
-  dir.create(dir)
-  htmlFile <- file.path(dir, "index.html")
-  print(xtable::xtable(tbl), type="html", file=htmlFile, include.rownames = FALSE,
-        html.table.attributes="border=1")
-  rstudio::viewer(htmlFile)
 }
 
 NULL
